@@ -9,7 +9,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from default endpoint', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
     strategy._oauth2.get = function(url, accessToken, callback) {
@@ -58,7 +58,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from default endpoint, with appsecret_proof', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         enableProof: true
       }, function() {});
 
@@ -82,7 +82,7 @@ describe('Strategy#userProfile', function() {
     });
 
     it('should parse profile', function() {
-      expect(profile.provider).to.equal('facebook');
+      expect(profile.provider).to.equal('accountkit');
       expect(profile.id).to.equal('500308595');
       expect(profile.username).to.equal('jaredhanson');
     });
@@ -91,7 +91,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from default endpoint, with profile fields mapped from Portable Contacts schema', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         profileFields: ['id', 'username', 'displayName', 'name', 'gender', 'profileUrl', 'emails', 'photos']
       }, function() {});
 
@@ -115,7 +115,7 @@ describe('Strategy#userProfile', function() {
     });
 
     it('should parse profile', function() {
-      expect(profile.provider).to.equal('facebook');
+      expect(profile.provider).to.equal('accountkit');
       expect(profile.id).to.equal('500308595');
       expect(profile.username).to.equal('jaredhanson');
     });
@@ -124,7 +124,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from default endpoint, with profile fields mapped from Portable Contacts schema, with appsecret_proof', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         profileFields: ['id', 'username', 'displayName', 'name', 'gender', 'profileUrl', 'emails', 'photos'],
         enableProof: true
       }, function() {});
@@ -158,7 +158,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from default endpoint, with profile fields a mix of mapped from Portable Contacts schema and native Facebook properties', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         profileFields: ['id', 'username', 'displayName', 'name', 'gender', 'profileUrl', 'emails', 'photos', 'public_key', 'updated_time']
       }, function() {});
 
@@ -195,7 +195,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from default endpoint, with profile fields being an empty array', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         profileFields: []
       }, function() {});
 
@@ -228,7 +228,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from older version with fields specified in URL', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         profileURL: 'https://graph.facebook.com/v2.2/me?fields=id,username'
       }, function() {});
 
@@ -261,7 +261,7 @@ describe('Strategy#userProfile', function() {
   describe('fetched from older version with fields specified in URL, with appsecret_proof', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret',
+        appSecret: 'secret',
         profileURL: 'https://graph.facebook.com/v2.2/me?fields=id,username',
         enableProof: true
       }, function() {});
@@ -295,7 +295,7 @@ describe('Strategy#userProfile', function() {
   describe('error caused by invalid token', function() {
     var strategy =  new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
     strategy._oauth2.get = function(url, accessToken, callback) {
@@ -327,7 +327,7 @@ describe('Strategy#userProfile', function() {
   describe('error caused by malformed response', function() {
     var strategy =  new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
     strategy._oauth2.get = function(url, accessToken, callback) {
@@ -355,7 +355,7 @@ describe('Strategy#userProfile', function() {
   describe('internal error', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
     strategy._oauth2.get = function(url, accessToken, callback) {

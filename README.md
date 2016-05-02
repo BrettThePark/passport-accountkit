@@ -2,10 +2,12 @@
 
 ** NOTE This code is forked from passport-facebook an has only been altered in a few locations to support accountkit **
 
-[![Build](https://img.shields.io/travis/jaredhanson/passport-facebook.svg)](https://travis-ci.org/jaredhanson/passport-facebook)
+** Mostly broken **
+
+<!-- [![Build](https://img.shields.io/travis/jaredhanson/passport-facebook.svg)](https://travis-ci.org/jaredhanson/passport-facebook)
 [![Coverage](https://img.shields.io/coveralls/jaredhanson/passport-facebook.svg)](https://coveralls.io/r/jaredhanson/passport-facebook)
 [![Quality](https://img.shields.io/codeclimate/github/jaredhanson/passport-facebook.svg?label=quality)](https://codeclimate.com/github/jaredhanson/passport-facebook)
-[![Dependencies](https://img.shields.io/david/jaredhanson/passport-facebook.svg)](https://david-dm.org/jaredhanson/passport-facebook)
+[![Dependencies](https://img.shields.io/david/jaredhanson/passport-facebook.svg)](https://david-dm.org/jaredhanson/passport-facebook) -->
 
 
 [Passport](http://passportjs.org/) strategy for authenticating with [Facebook's AccountKit](https://developers.facebook.com/docs/accountkit)
@@ -45,7 +47,7 @@ complete authentication.
 ```js
 passport.use(new AccountkitStrategy({
     clientID: FACEBOOK_APP_ID,
-    clientSecret: FACEBOOK_APP_SECRET,
+    appSecret: FACEBOOK_APP_SECRET,
     callbackURL: "http://localhost:3000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -118,7 +120,7 @@ can be indicated by setting the `profileFields` option.
 ```js
 new AccountkitStrategy({
   clientID: FACEBOOK_APP_ID,
-  clientSecret: FACEBOOK_APP_SECRET,
+  appSecret: FACEBOOK_APP_SECRET,
   callbackURL: "http://localhost:3000/auth/facebook/callback",
   profileFields: ['id', 'displayName', 'photos', 'email']
 }), ...)
@@ -134,7 +136,7 @@ Set the `enableProof` option when creating the strategy.
 ```js
 new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
-  clientSecret: FACEBOOK_APP_SECRET,
+  appSecret: FACEBOOK_APP_SECRET,
   callbackURL: "http://localhost:3000/auth/facebook/callback",
   enableProof: true
 }, ...)

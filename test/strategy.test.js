@@ -10,7 +10,7 @@ describe('Strategy', function() {
   describe('constructed', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       },
       function() {});
 
@@ -25,12 +25,12 @@ describe('Strategy', function() {
         var strategy = new AccountkitStrategy(undefined, function(){});
       }).to.throw(Error);
     });
-  })
+  })face
 
   describe('authorization request with display parameter', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
 
@@ -55,7 +55,7 @@ describe('Strategy', function() {
   describe('authorization request with reauthorization parameters', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
 
@@ -80,7 +80,7 @@ describe('Strategy', function() {
   describe('failure caused by user denying request', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
 
@@ -111,7 +111,7 @@ describe('Strategy', function() {
   describe('error caused by app being in sandbox mode', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
 
@@ -142,7 +142,7 @@ describe('Strategy', function() {
   describe('error caused by invalid code sent to token endpoint (note: error format does not conform to OAuth 2.0 specification)', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
     strategy._oauth2.getOAuthAccessToken = function(code, options, callback) {
@@ -178,7 +178,7 @@ describe('Strategy', function() {
   describe('error caused by invalid code sent to token endpoint (note: error format conforms to OAuth 2.0 specification, though this is not the current behavior of the Facebook implementation)', function() {
     var strategy = new AccountkitStrategy({
         clientID: 'ABC123',
-        clientSecret: 'secret'
+        appSecret: 'secret'
       }, function() {});
 
     // inject a "mock" oauth2 instance
